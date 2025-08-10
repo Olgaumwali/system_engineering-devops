@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
-# Displays "To infinity and beyond" indefinitely and responds to SIGTERM with "I am invincible!!!"
-trap 'echo "I am invincible!!!"' SIGTERM
-while true
-do
-echo "To infinity and beyond"
-sleep 2
-done
+# Sends SIGTERM to 7-highlander without kill or killall
+pid=$(pgrep -fx "./7-highlander")
+if [ -n "$pid" ]; then
+echo 15 > "/proc/$pid/kill"
+fi

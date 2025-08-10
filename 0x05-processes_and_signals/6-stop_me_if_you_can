@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
-# Stops the 4-to_infinity_and_beyond process without kill or killall
-# Get all exact match PIDs for the process
+# Stops at most 2 4-to_infinity_and_beyond processes without kill or killall
 pids=$(pgrep -x "4-to_infinity_and_beyond")
-# Get current script PID to avoid killing self if matched (unlikely)
 self_pid=$$
+count=0
 for pid in $pids; do
 if [ "$pid" != "$self_pid" ]; then
 echo 15 > "/proc/$pid/kill"
+count=$((count + 1))
+if [ "$count" -eq 2 ]; then
+break
+fi
 fi
 done

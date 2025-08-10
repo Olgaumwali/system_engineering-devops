@@ -1,6 +1,5 @@
-#!/bin/bash
-# Script: 4-to_infinity_and_beyond
-# Prints "To infinity and beyond" forever with a 2-second pause
+#!/usr/bin/env bash
+# Displays "To infinity and beyond" indefinitely with a 2-second pause between each repetition
 while true
 do
 echo "To infinity and beyond"

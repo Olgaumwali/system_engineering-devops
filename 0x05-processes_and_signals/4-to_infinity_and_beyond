@@ -1,0 +1,8 @@
+#!/bin/bash
+# Script: 4-to_infinity_and_beyond
+# Prints "To infinity and beyond" forever with a 2-second pause
+while true
+do
+echo "To infinity and beyond"
+sleep 2
+done

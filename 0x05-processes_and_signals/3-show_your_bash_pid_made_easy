@@ -1,7 +1,7 @@
-#!/bin/bash
-# Find all processes containing "bash" in their name
+#!/usr/bin/env bash
+# Displays the PID and process name of processes containing "bash" in their name
 pgrep -f bash | while read -r pid; do
- # Check if the process still exists and get the executable path
+# Check if the process still exists and get the executable path
 if [ -e "/proc/$pid/exe" ]; then
 exe_path=$(readlink -f "/proc/$pid/exe")
 if [ -n "$exe_path" ]; then
